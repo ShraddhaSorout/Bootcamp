@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Address Form</h2>
+
+    <form id="addressForm">
+        <label for="temporaryAddress">Temporary Address:</label>
+        <textarea id="temporaryAddress" name="temporaryAddress" rows="4" cols="50"></textarea>
+
+        <br>
+
+        <input type="checkbox" id="sameAsTemporary"> Same as Temporary Address
+
+        <br>
+
+        <label for="permanentAddress">Permanent Address:</label>
+        <textarea id="permanentAddress" name="permanentAddress" rows="4" cols="50"></textarea>
+
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('sameAsTemporary').addEventListener('change', function() {
+            var permanentAddress = document.getElementById('permanentAddress');
+            var temporaryAddress = document.getElementById('temporaryAddress');
+
+            if (this.checked) {
+                // If checkbox is checked, make permanent address same as temporary address
+                permanentAddress.value = temporaryAddress.value;
+            } else {
+                // If checkbox is unchecked, clear permanent address
+                permanentAddress.value = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
